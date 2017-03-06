@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 /* Insert one new user into database. */
-router.route('/').get(function (req, res) {
+router.route('/').post(function (req, res) {
     console.log('req.originalUrl : ', req.originalUrl);
-    GLOBAL.db.collection('users').insert([req.query],
+    GLOBAL.db.collection('users').insert([req.body],
         function (err, result) {
             if (err) {
                 throw err;
