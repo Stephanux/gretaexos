@@ -3,12 +3,12 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var ObjectID = require('mongodb').ObjectID;
 /* GET users listing. */
-router.route('/:_id').get(function (req, res) {
+router.route('/:_id').post(function (req, res) {
     console.log('req.originalUrl : ', req.originalUrl);
     GLOBAL.db.collection('users').update({
             _id: new ObjectID(req.params._id)
         }, {
-            $set: req.query
+            $set: req.body
         },
         function (err, result) {
             if (err) {
