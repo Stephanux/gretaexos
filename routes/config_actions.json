@@ -17,6 +17,9 @@
     "GET/modifyUser": {
         "controler": "modifyUser"
     },
+    "POST/modifyUser": {
+        "controler": "modifyUser"
+    },
     "GET/newUser": {
         "controler": "newUser"
     },
