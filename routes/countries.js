@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  GLOBAL.schemas["Countrie"].find().toArray(function(err, result) {
+  GLOBAL.db.collection("countries").find().toArray(function(err, result) {
     if (err) {
       throw err;
     }
