@@ -23,7 +23,7 @@
     "GET/newUser": {
         "controler": "newUser"
     },
-    "GET/createUser": {
+    "POST/createUser": {
         "controler": "createUser"
     }
 }
