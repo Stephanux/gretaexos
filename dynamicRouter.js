@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
 var appContext;
-var url = require("url");
 
 function dynamicRouter(app) {
     //-- Context applicatif
@@ -18,7 +17,7 @@ function manageAction(req, res, next) {
     var type;  //(GET ou POST, ... http méthode)
     var controler;  // nom du contrôleur à charger
     var params; // paramètre de l'URL mode REST
-    path = url.parse(req.url).pathname;
+    path = req.originalUrl;
     // Il faut supprimer pour le routage le param après l'action
     if (path.split('/').length > 0) path = '/'+path.split('/')[1]
     type = req.method;
