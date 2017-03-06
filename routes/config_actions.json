@@ -25,5 +25,8 @@
     },
     "POST/createUser": {
         "controler": "createUser"
+    },
+    "GET/deleteUser": {
+        "controler": "deleteUser"
     }
 }
