@@ -35,8 +35,8 @@ hbs.registerHelper('compare', function (lvalue, rvalue, options) {
             if (l == r) console.log(l + ' - ' + r + ' : ' + (l == r));
             return l == r;
         },
-        'tabempty': function (obj) {
-            if (!obj || obj.length == 0)
+        'tabempty': function (array) {
+            if (!array || array.length == 0)
                 return true;
             return false;
         }
