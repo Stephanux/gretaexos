@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
 var ObjectID = require('mongodb').ObjectID;
 /* GET users listing. */
 router.route('/:_id').post(function (req, res) {

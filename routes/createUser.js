@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
 /* Insert one new user into database. */
 router.route('/').post(function (req, res) {
     console.log('req.originalUrl : ', req.originalUrl);

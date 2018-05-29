@@ -5,18 +5,31 @@
 	    } else console.log('Connected');
 	});
 
+	mongoose.connection.on("error", function () {
+	    console.log("Erreur de connexion à la base de données")
+	});
+	mongoose.connection.on("open", function () {
+	    console.log("Connexion réussie à la base de données");
+	});
+
 	/* Schema mongoose instacié sur collection "countries" */
 	var countriesSchema = new mongoose.Schema({
-        _id: {type : mongoose.Schema.ObjectId},
-	    code: {type: String},
-	    name: {type: String}
-    });
+	    _id: {
+	        type: mongoose.Schema.ObjectId
+	    },
+	    code: {
+	        type: String
+	    },
+	    name: {
+	        type: String
+	    }
+	});
 
 	/* Association entre la collection "countries" et le schéma */
 	var country = mongoose.model('Countries', countriesSchema, 'countries');
 
 	/* On obtient un Model permettant d'exécuter des requêtes */
-	GLOBAL.schemas["Countries"].find(function (err, comms) {
+	country.find({ code: "FR"}, function (err, comms) {
 	    if (err) {
 	        throw err;
 	    }

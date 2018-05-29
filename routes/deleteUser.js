@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
 var ObjectID = require('mongodb').ObjectID;
 
 /* Insert one new user into database. */
