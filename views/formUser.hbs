@@ -21,7 +21,7 @@
 <script>
     var form = document.getElementById('formAddUser');
     form.addEventListener('submit', function(evt) {
-        form.action += "/{{user._id}}";
+        if ("{{form_action}}" == "/modifyUser") form.action += "/{{user._id}}";
         form.submit();
     });
 </script>

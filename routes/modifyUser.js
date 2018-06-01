@@ -3,6 +3,8 @@ var router = express.Router();
 var ObjectID = require('mongodb').ObjectID;
 /* GET users listing. */
 router.route('/:_id').post(function (req, res) {
+    var type= req.method;
+    var path= "/" + req.originalUrl.split('/')[1];
     console.log('req.originalUrl : ', req.originalUrl);
     GLOBAL.db.collection('users').update({
             _id: new ObjectID(req.params._id)
@@ -21,7 +23,7 @@ router.route('/:_id').post(function (req, res) {
                     throw err;
                 }
                 console.log('users: ', result);
-                res.render('modifyUser', {
+                res.render(global.actions_json[type + path].view, {
                     title: 'User modified without error',
                     user: result[0]
                 });

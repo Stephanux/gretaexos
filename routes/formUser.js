@@ -4,6 +4,8 @@ var ObjectID = require('mongodb').ObjectID;
 
 /* GET user from _id into url */
 router.route('/:_id').get(function (req, res) {
+    var type= req.method;
+    var path= "/" + req.originalUrl.split('/')[1];
     console.log('req.originalUrl : ', req.originalUrl);
     GLOBAL.db.collection('users').find({
         _id: new ObjectID(req.params._id)
@@ -12,7 +14,7 @@ router.route('/:_id').get(function (req, res) {
             throw err;
         }
         console.log('formUser: ', result);
-        res.render('formUser', {
+        res.render(global.actions_json[type + path].view, {
             title: "Form user\'s datas",
             libelle: "modification",
             form_action: "/modifyUser",

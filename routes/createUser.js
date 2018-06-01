@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 /* Insert one new user into database. */
 router.route('/').post(function (req, res) {
+    var type= req.method;
+    var path= req.originalUrl;
     console.log('req.originalUrl : ', req.originalUrl);
     GLOBAL.db.collection('users').insert([req.body],
         function (err, result) {
@@ -9,7 +11,7 @@ router.route('/').post(function (req, res) {
                 throw err;
             }
             console.log('createUser: ', result);
-            res.render('modifyUser', {
+            res.render(global.actions_json[type + path].view, {
                 title: 'Creating User without error with datas below :',
                 user: result.ops[0]
             });

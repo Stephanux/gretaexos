@@ -3,12 +3,14 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  GLOBAL.db.collection("countries").find().toArray(function(err, result) {
-    if (err) {
-      throw err;
-    }
-    //console.log(result);
-    res.render('countries', {title: 'Liste countries', country: result});
-  });
+    var type= req.method;
+    var path= req.originalUrl;
+    GLOBAL.db.collection("countries").find().toArray(function(err, result) {
+      if (err) {
+        throw err;
+      }
+      //console.log(result);
+      res.render(global.actions_json[type + path].view, {title: 'Liste countries', country: result});
+    });
 });
 module.exports = router;
