@@ -6,7 +6,7 @@ router.route('/:_id').post(function (req, res) {
     var type= req.method;
     var path= "/" + req.originalUrl.split('/')[1];
     console.log('req.originalUrl : ', req.originalUrl);
-    GLOBAL.db.collection('users').update({
+    GLOBAL.db.collection(global.actions_json[type + path].collection).update({
             _id: new ObjectID(req.params._id)
         }, {
             $set: req.body
@@ -16,7 +16,7 @@ router.route('/:_id').post(function (req, res) {
                 throw err;
             }
             console.log('modifyUser: ', result);
-            GLOBAL.db.collection('users').find({
+            GLOBAL.db.collection(global.actions_json[type + path].collection).find({
             _id: new ObjectID(req.params._id)
         }).toArray(function (err, result) {
                 if (err) {
