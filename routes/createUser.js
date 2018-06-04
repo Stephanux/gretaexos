@@ -5,7 +5,7 @@ router.route('/').post(function (req, res) {
     var type= req.method;
     var path= req.originalUrl;
     console.log('req.originalUrl : ', req.originalUrl);
-    GLOBAL.db.collection('users').insert([req.body],
+    GLOBAL.db.collection(global.actions_json[type + path].collection).insert([req.body],
         function (err, result) {
             if (err) {
                 throw err;

@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
     var type= req.method;
     var path= req.originalUrl;
-  GLOBAL.db.collection('exercices').find().toArray(function(err, result) {
+  GLOBAL.db.collection(global.actions_json[type + path].collection).find().toArray(function(err, result) {
     if (err) {
       throw err;
     }

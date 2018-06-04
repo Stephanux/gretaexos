@@ -10,7 +10,7 @@ router.route('/:_id').get(function (req, res) {
     var path = '/' + req.originalUrl.split('/')[1];
     var type = req.method;
     console.log('req.originalUrl : ', req.originalUrl);
-    GLOBAL.db.collection('users').remove({_id: new ObjectID(req.params._id)},
+    GLOBAL.db.collection(global.actions_json[type + path].collection).remove({_id: new ObjectID(req.params._id)},
         function (err, result) {
             if (err) {
                 throw err;

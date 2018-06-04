@@ -1,42 +1,52 @@
 {
     "GET/" : {
         "controler": "index",
-        "view": "index"
+        "view": "index",
+        "collection": ""
     },
     "GET/users": {
         "controler": "users",
-        "view": "users"
+        "view": "users",
+        "collection": "users"
     },
     "GET/exos": {
         "controler": "exos",
-        "view": "exos"
+        "view": "exos",
+        "collection": "exercices"
     },
     "GET/countries": {
         "controler": "countries",
-        "view": "countries"
+        "view": "countries",
+        "collection": "countries"
     },
     "GET/formUser": {
         "controler": "formUser",
-        "view": "formUser"
+        "view": "formUser",
+        "collection": "users"
     },
     "GET/modifyUser": {
         "controler": "modifyUser",
-        "view": "formUser"
+        "view": "formUser",
+        "collection": "users"
     },
     "POST/modifyUser": {
         "controler": "modifyUser",
-        "view" : "modifyUser"
+        "view" : "modifyUser",
+        "collection": "users"
     },
     "GET/newUser": {
         "controler": "newUser",
-        "view": "formUser"
+        "view": "formUser",
+        "collection": "users"
     },
     "POST/createUser": {
         "controler": "createUser",
-        "view": "modifyUser"
+        "view": "modifyUser",
+        "collection": "users"
     },
     "GET/deleteUser": {
         "controler": "deleteUser",
-        "view": "users"
+        "view": "users",
+        "collection": "users"
     }
 }
